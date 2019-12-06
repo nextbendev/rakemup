@@ -1,27 +1,12 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if signed_in? %>
+     Signed in as: <%= current_user.email %>
+     <%= button_to 'Sign out', sign_out_path, method: :delete %>
+   <% else %>
+     <%= link_to 'Sign in', sign_in_path %>
+   <% end %>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+   <div id="flash">
+     <% flash.each do |key, value| %>
+       <div class="flash <%= key %>"><%= value %></div>
+     <% end %>
+   </div>

@@ -20,6 +20,11 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bundler'
 gem 'rake', '~> 13.0', '>= 13.0.1'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem "clearance"
+gem 'omniauth', '~> 1.9'
+gem 'omniauth-google-oauth2', '~> 0.8.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
